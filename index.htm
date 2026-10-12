@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17364c">
+<title>北埔消防分隊｜職業安全衛生互動教材</title>
+<style>
+:root {
+  --navy: #17364c;
+  --blue: #24617a;
+  --teal: #4e9a88;
+  --bg: #f3f6f8;
+  --card: #ffffff;
+  --ink: #20313b;
+  --muted: #647580;
+  --line: #dbe3e8;
+  --soft: #eaf2f5;
+  --correct: #1e7e4e;
+  --correct-bg: #eaf7ef;
+  --wrong: #b8332a;
+  --wrong-bg: #fdf0ef;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(36, 97, 122, 0.15);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: auto;
+  padding: 16px;
+}
+
+.hero {
+  background: linear-gradient(130deg, var(--navy), var(--blue));
+  color: white;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(24, 57, 76, 0.12);
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid #a6cbd8;
+  border-radius: 30px;
+  padding: 4px 12px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: clamp(23px, 5.5vw, 36px);
+  line-height: 1.3;
+  margin: 12px 0 6px;
+}
+
+.substation {
+  font-size: 15px;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.hero p {
+  margin: 10px 0 0;
+  color: #e3f0f5;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-top: 14px;
+  box-shadow: 0 2px 8px rgba(32, 49, 59, 0.04);
+}
+
+h2 { font-size: 21px; margin: 0 0 10px; color: var(--navy); }
+h3 { font-size: 18px; margin: 0 0 8px; color: var(--navy); }
+h4 { font-size: 16px; margin: 14px 0 6px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+
+/* Sticky Navigation with Horizontal Scroll on Mobile */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 8px 0 4px;
+  margin: 8px 0;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 2px 6px;
+}
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 11px 16px;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+  min-height: 46px;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible, input:focus-visible {
+  outline: 3px solid #8fc4d7;
+  outline-offset: 2px;
+}
+
+.nav button {
+  flex: 0 0 auto;
+  font-size: 14.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 9px 18px;
+  min-height: 42px;
+}
+
+.nav button.active, .primary {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(36, 97, 122, 0.25);
+}
+
+.primary {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+  font-weight: 700;
+}
+.primary:hover {
+  background: #1c5065;
+}
+
+.secondary {
+  background: white;
+}
+.secondary:hover {
+  background: #f8fafb;
+}
+
+.progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.bar {
+  height: 9px;
+  background: var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.bar > div {
+  height: 100%;
+  width: 0;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+
+/* Home Grid & Clickable Modules */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.tile {
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--soft);
+  border: 1.5px solid transparent;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tile.clickable {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.tile.clickable:hover {
+  border-color: #9ac2d1;
+  background: #e2edf2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(23, 54, 76, 0.08);
+}
+
+.tile.clickable:active {
+  transform: scale(0.98);
+  background: #d8e7ed;
+}
+
+.tile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.num {
+  font-size: 22px;
+  font-weight: 850;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.tile-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: #d6e8ef;
+  color: var(--blue);
+}
+
+.tile.completed .tile-badge {
+  background: #d4edda;
+  color: #155724;
+}
+
+.tile-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.tile-cta {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Fully Touch-Optimized Option Cards */
+.qopt {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  background: white;
+  transition: all 0.15s ease;
+  min-height: 52px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.qopt:hover {
+  border-color: #a8c7d3;
+  background: #fbfdfe;
+}
+
+.qopt:active {
+  transform: scale(0.985);
+  background: #edf6f9;
+}
+
+/* Selected state: Supports both CSS :has and JS .selected class for older/in-app mobile browsers */
+.qopt:has(input:checked),
+.qopt.selected {
+  border-color: var(--blue) !important;
+  background: #edf6fa !important;
+  box-shadow: 0 0 0 1px var(--blue);
+}
+
+.qopt input[type="radio"],
+.qopt input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  margin: 2px 0 0;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.qopt-text {
+  flex: 1;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* Quiz submitted states */
+.qopt.quiz-correct {
+  border-color: var(--correct) !important;
+  background: var(--correct-bg) !important;
+  box-shadow: 0 0 0 1px var(--correct);
+}
+
+.qopt.quiz-wrong {
+  border-color: var(--wrong) !important;
+  background: var(--wrong-bg) !important;
+  box-shadow: 0 0 0 1px var(--wrong);
+}
+
+.qopt.quiz-answer-highlight {
+  border-color: var(--correct) !important;
+  border-style: dashed !important;
+  background: #f3faf5 !important;
+}
+
+.feedback {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--soft);
+  margin-top: 12px;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.feedback.correct {
+  background: #eaf7ef;
+  border: 1px solid #89d4a4;
+  color: #14552b;
+}
+
+.feedback.warning {
+  background: #fff8e6;
+  border: 1px solid #fed276;
+  color: #8c5b00;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.actions #prev {
+  flex: 1;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+.actions #next {
+  flex: 2;
+  min-height: 48px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.btn-lg {
+  min-height: 48px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 20px;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 24px 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+li {
+  margin: 6px 0;
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    padding: 12px 10px;
+  }
+  .hero {
+    padding: 22px 18px;
+    border-radius: 15px;
+  }
+  .panel {
+    padding: 15px 14px;
+    border-radius: 12px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .actions {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+@media print {
+  body { background: white; }
+  .nav-wrap, .actions, button { display: none !important; }
+  .panel, .hero { box-shadow: none; break-inside: avoid; }
+  .wrap { max-width: none; padding: 0; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="tag">消防職業安全衛生｜互動學習課程</span>
+    <h1>安全出勤・平安歸來</h1>
+    <div class="substation">新竹縣政府消防局第四大隊北埔分隊</div>
+    <p>從廳舍環境、勤務壓力到救災現場風險，建立辨識危害、適當應變及主動通報的安全習慣。</p>
+  </header>
+
+  <section class="panel">
+    <div class="progress-head">
+      <span>學習進度</span>
+      <span id="progress-label">已完成 0 / 5 個單元</span>
+    </div>
+    <div class="bar"><div id="progress"></div></div>
+    <div class="small muted">建議學習時間：約 15–20 分鐘。完成各單元後，再進行課後測驗。</div>
+  </section>
+
+  <div class="nav-wrap" id="nav-wrap">
+    <nav class="nav" id="nav" aria-label="教材單元">
+      <button class="active" data-tab="0">課程首頁</button>
+      <button data-tab="1">環境品質</button>
+      <button data-tab="2">壓力管理</button>
+      <button data-tab="3">危害辨識</button>
+      <button data-tab="4">安全衛生教育</button>
+      <button data-tab="5">健康管理</button>
+      <button data-tab="6">課後測驗</button>
+    </nav>
+  </div>
+
+  <main id="content" aria-live="polite"></main>
+
+  <section class="panel small muted">
+    <strong>教材使用提醒</strong><br>
+    本教材為教育訓練用途，依提供之北埔分隊職安訪視文章編製。實際作業應遵循消防局規定、現場指揮及適用的職業安全衛生規範；教材內容不取代正式程序、專業評估或緊急醫療處置。
+  </section>
+
+  <footer>北埔消防分隊職業安全衛生互動教材｜安全出勤・平安歸來</footer>
+</div>
+
+<script>
+(function(){
+  const content = document.getElementById('content');
+  const navWrap = document.getElementById('nav-wrap');
+  const navButtons = [...document.querySelectorAll('#nav [data-tab]')];
+  const completed = new Set();
+  let answers = {};
+  let submitted = false;
+
+  const modules = [
+    {
+      title: '課程首頁',
+      body: '' // Rendered dynamically by getHomeHtml()
+    },
+    {
+      title: '單元一｜環境品質',
+      body: `
+        <h2>打造安全、舒適的備勤環境</h2>
+        <p>工作安全環境需要持續檢查及改善。本單元聚焦空氣品質、噪音、照明及通風。</p>
+        <div class="panel">
+          <h3>空氣品質</h3>
+          <ul>
+            <li>留意異味、煙霧、粉塵及可能的廢氣來源。</li>
+            <li>依規定維持空間清潔與適當通風。</li>
+            <li>如懷疑一氧化碳或其他有害氣體，應立即撤離危險區域、通報並由合適人員檢測，不可只依氣味判斷。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>噪音與照明</h3>
+          <ul>
+            <li>注意警報器、機械設備或其他持續性噪音對休息及溝通的影響。</li>
+            <li>確認走道、樓梯、器材區及作業位置照明足夠。</li>
+            <li>發現燈具損壞、眩光或視線死角時，應反映修復或調整。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>通風與整潔</h3>
+          <ul>
+            <li>勿任意阻擋通風口或逃生動線。</li>
+            <li>保持地面乾燥，清除障礙物並妥善收納器材。</li>
+            <li>污染裝備及清潔用品依規範分區處理、存放。</li>
+          </ul>
+        </div>
+        <h3>情境練習</h3>
+        <p>你發現器材區地面積水，旁邊又有電器延長線。下列哪個作法較恰當？</p>
+        <div id="scene-options">
+          <label class="qopt" for="scene-a">
+            <input type="radio" id="scene-a" name="scene" value="a">
+            <span class="qopt-text">直接踩過去清理並拔插頭。</span>
+          </label>
+          <label class="qopt" for="scene-b">
+            <input type="radio" id="scene-b" name="scene" value="b">
+            <span class="qopt-text">避免接近危險區，通報並依安全程序處理電氣及積水風險。</span>
+          </label>
+          <label class="qopt" for="scene-c">
+            <input type="radio" id="scene-c" name="scene" value="c">
+            <span class="qopt-text">先拍照，等下班再反映。</span>
+          </label>
+        </div>
+        <button class="primary btn-lg w-full" id="scene-check" style="margin-top:12px;">確認答案</button>
+        <div id="scene-feedback"></div>
+      `
+    },
+    {
+      title: '單元二｜壓力管理',
+      body: `
+        <h2>四大勤務壓力管理因子</h2>
+        <p>訪視文章提出勤務時間、突發任務、睡眠問題及情緒支持四大因子。壓力管理是個人、同儕與組織共同的責任。</p>
+        <div class="panel">
+          <h3>勤務時間</h3>
+          <ul>
+            <li>合理安排勤務與工作分配，依規定落實休息及交接。</li>
+            <li>若工作負荷持續偏高，應向主管反映並討論可行的調整方式。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>突發任務</h3>
+          <ul>
+            <li>出勤前掌握已知資訊、任務分工及安全提醒。</li>
+            <li>任務中保持通訊與情勢回報；情勢改變時重新評估風險。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>睡眠問題</h3>
+          <ul>
+            <li>在勤務允許下爭取休息，維持適當的睡眠習慣。</li>
+            <li>若疲勞已影響警覺、判斷或操作，應立即告知主管並評估安全替代安排。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>情緒支持</h3>
+          <ul>
+            <li>同仁之間主動關心，尊重個人意願與隱私。</li>
+            <li>重大或高壓事件後，可依需要尋求主管、專業心理支持或員工協助資源。</li>
+            <li>持續的情緒困擾不必獨自承擔，及早尋求協助。</li>
+          </ul>
+        </div>
+        <h3>情境判斷</h3>
+        <p>同仁在連續勤務後明顯疲勞，卻擔心提出來會被認為不夠積極。你會怎麼做？</p>
+        <div id="pressure-options">
+          <label class="qopt" for="pressure-a">
+            <input type="radio" id="pressure-a" name="pressure" value="a">
+            <span class="qopt-text">勸他忍耐，完成勤務後再說。</span>
+          </label>
+          <label class="qopt" for="pressure-b">
+            <input type="radio" id="pressure-b" name="pressure" value="b">
+            <span class="qopt-text">鼓勵他立即向主管反映疲勞狀況，依勤務與安全規範評估休息或工作安排。</span>
+          </label>
+          <label class="qopt" for="pressure-c">
+            <input type="radio" id="pressure-c" name="pressure" value="c">
+            <span class="qopt-text">直接在群組公開討論他的身心狀況。</span>
+          </label>
+        </div>
+        <button class="primary btn-lg w-full" id="pressure-check" style="margin-top:12px;">確認答案</button>
+        <div id="pressure-feedback"></div>
+      `
+    },
+    {
+      title: '單元三｜潛在危害辨識',
+      body: `
+        <h2>風險辨識四步驟</h2>
+        <div class="panel">
+          <h3>第一步：發現危害</h3>
+          <p>觀察現場環境、設備、動線、個人狀態及可能的暴露來源。</p>
+        </div>
+        <div class="panel">
+          <h3>第二步：評估風險</h3>
+          <p>考量危害發生的可能性、可能造成的傷害，以及現場情勢是否正在改變。</p>
+        </div>
+        <div class="panel">
+          <h3>第三步：採取控制措施</h3>
+          <p>依危害情況採取隔離、移除危害、工程控制、作業管理或適當個人防護措施。不可只依賴個人防護具取代所有控制措施。</p>
+        </div>
+        <div class="panel">
+          <h3>第四步：通報及追蹤</h3>
+          <p>依程序通報主管或職安權責人員，記錄問題、改善措施與後續確認結果。</p>
+        </div>
+        <h3>常見風險檢查表</h3>
+        <p class="muted small">勾選你已檢查或已確認處理的項目；這是本次學習紀錄，不代表現場已經通過正式檢查。</p>
+        <div id="checklist">
+          <label class="qopt" for="chk-1">
+            <input type="checkbox" id="chk-1">
+            <span class="qopt-text">走道、樓梯及出口沒有被雜物阻擋。</span>
+          </label>
+          <label class="qopt" for="chk-2">
+            <input type="checkbox" id="chk-2">
+            <span class="qopt-text">地面無明顯積水，電線與電器無可見異常。</span>
+          </label>
+          <label class="qopt" for="chk-3">
+            <input type="checkbox" id="chk-3">
+            <span class="qopt-text">消防裝備、器材及車輛依規定檢查。</span>
+          </label>
+          <label class="qopt" for="chk-4">
+            <input type="checkbox" id="chk-4">
+            <span class="qopt-text">人員了解作業風險、通訊方式及必要防護。</span>
+          </label>
+          <label class="qopt" for="chk-5">
+            <input type="checkbox" id="chk-5">
+            <span class="qopt-text">發現的缺失已通報並安排追蹤。</span>
+          </label>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+          <span id="check-count" class="small muted" style="font-weight:600;">已確認 0 / 5 項</span>
+          <button class="secondary" id="check-reset" style="padding:6px 14px;min-height:38px;font-size:13px;">重設勾選</button>
+        </div>
+        <div class="feedback" style="margin-top:14px;">
+          <strong>注意：</strong>救災現場應持續進行動態風險評估。若出現立即危險，應依現場指揮及安全程序採取保護措施，不可為完成檢查而延誤撤離或求援。
+        </div>
+      `
+    },
+    {
+      title: '單元四｜安全衛生教育',
+      body: `
+        <h2>把安全要求落實到每日工作</h2>
+        <p>職安教育訓練應與實際任務結合，協助同仁了解危害、正確操作、使用防護裝備及通報異常。</p>
+        <div class="panel">
+          <h3>出勤前</h3>
+          <ul>
+            <li>確認個人防護裝備與任務需求相符，並檢查裝備是否有異常。</li>
+            <li>掌握任務資訊、分工、通訊方式及已知危害。</li>
+            <li>評估自身身體狀況及疲勞程度，發現疑慮及時反映。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>勤務中</h3>
+          <ul>
+            <li>遵循指揮及標準作業程序，不擅自採取超出訓練或裝備能力的作法。</li>
+            <li>發現裝備故障、危害擴大或通訊中斷時，立即回報並依程序處置。</li>
+            <li>保持隊員間聯繫，注意環境變化與撤退條件。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>勤務後</h3>
+          <ul>
+            <li>依規範清潔、檢查、保養及歸位器材。</li>
+            <li>污染裝備依程序處理，避免污染擴散至休息區。</li>
+            <li>回報裝備故障、虛驚事件、受傷及需要追蹤改善的缺失。</li>
+          </ul>
+        </div>
+        <div class="feedback">
+          <strong>安全教育的重點</strong>
+          <p style="margin:4px 0 10px;">教育訓練不能只簽到。應確認同仁理解作業風險、能正確操作，並在適當情境下實際演練及檢視成效。</p>
+          <strong>討論題</strong>
+          <p style="margin:4px 0 0;">若發現同仁使用方式不正確，建議先確認現場安全，再適時提醒、依程序停止不安全操作，協助矯正並視需要安排複訓或通報。</p>
+        </div>
+      `
+    },
+    {
+      title: '單元五｜健康管理',
+      body: `
+        <h2>從健康檢查到持續追蹤</h2>
+        <p>健康管理不是只有體檢當天，而是透過適當檢查、風險評估、健康諮詢及後續追蹤，及早發現需要處理的問題。</p>
+        <div class="panel">
+          <h3>健康檢查與追蹤</h3>
+          <ul>
+            <li>依規定參與健康檢查，並了解個人檢查結果及後續建議。</li>
+            <li>需要複檢、就醫或工作調整時，依專業建議及相關程序辦理。</li>
+            <li>個人健康資料應依規定妥善保護，不任意公開或散布。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>事件與原因分析</h3>
+          <ul>
+            <li>對受傷、暴露、裝備異常、虛驚事件及不安全狀況進行適當紀錄。</li>
+            <li>分析事件原因時，不只關注個人行為，也檢視設備、環境、流程、訓練及管理因素。</li>
+            <li>改善後確認措施是否有效，必要時修訂程序並安排教育訓練。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>同儕支持</h3>
+          <ul>
+            <li>關心同仁是否出現持續疲勞、睡眠困擾或明顯壓力。</li>
+            <li>以尊重、保密及非責備方式提供支持。</li>
+            <li>若有急迫的身心安全疑慮，應立即依適當程序尋求專業協助。</li>
+          </ul>
+        </div>
+        <h3>本單元自我檢視</h3>
+        <p class="muted small">點選完成以下三項檢視，確認已掌握健康管理要領：</p>
+        <div id="health-check">
+          <label class="qopt" for="hlth-1">
+            <input type="checkbox" id="hlth-1">
+            <span class="qopt-text">我知道如何依規定安排健康檢查與後續追蹤。</span>
+          </label>
+          <label class="qopt" for="hlth-2">
+            <input type="checkbox" id="hlth-2">
+            <span class="qopt-text">我了解健康資料與同仁隱私需要受到保護。</span>
+          </label>
+          <label class="qopt" for="hlth-3">
+            <input type="checkbox" id="hlth-3">
+            <span class="qopt-text">我知道遇到職安問題或身心困擾時，可向適當管道求助。</span>
+          </label>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+          <span id="health-count" class="small muted" style="font-weight:600;">已確認 0 / 3 項</span>
+          <button class="secondary" id="health-reset" style="padding:6px 14px;min-height:38px;font-size:13px;">重設勾選</button>
+        </div>
+        <div id="health-feedback" class="feedback correct" style="display:none;margin-top:12px;">
+          <strong>✓ 自我檢視完成！</strong>落實身心健康管理，有助於維持良好的執勤與備勤狀態。
+        </div>
+      `
+    }
+  ];
+
+  const quiz = [
+    {
+      q: '發現備勤區疑似有害氣體，正確的第一步是什麼？',
+      o: ['先打開電風扇，繼續工作', '立即離開可能受影響區域，通報並依程序安排專業檢測', '只要沒有明顯氣味，就可以忽略'],
+      a: 1,
+      e: '疑似有害氣體時，不應依氣味判斷安全性。應先確保人員安全、通報並依程序處理。'
+    },
+    {
+      q: '哪一項不是勤務壓力管理的四大因子？',
+      o: ['勤務時間', '突發任務', '制服顏色'],
+      a: 2,
+      e: '四大因子為勤務時間、突發任務、睡眠問題及情緒支持。'
+    },
+    {
+      q: '連續勤務後精神不濟，應如何處理？',
+      o: ['隱瞞疲勞以免影響同仁觀感', '告知主管，依勤務狀況與安全規範評估適當安排', '自行喝大量提神飲料後不必再評估'],
+      a: 1,
+      e: '疲勞可能影響警覺與判斷。及時反映並評估安全安排，較能降低風險。'
+    },
+    {
+      q: '發現走道積水且附近有電線，較恰當的處理方式是？',
+      o: ['立即踩過去清理', '先注意電氣風險、避免接觸危險區域，通報並依安全程序處理', '用濕拖把直接清潔所有電器周邊'],
+      a: 1,
+      e: '應先避免接觸可能帶電的濕區，並依程序隔離危險、通報及安排安全處理。'
+    },
+    {
+      q: '職安危害改善後，還應做什麼？',
+      o: ['不必記錄，改善一次即可', '確認改善措施有效，必要時追蹤並更新相關作業方式', '只要口頭提醒過就算完成'],
+      a: 1,
+      e: '追蹤改善成效有助於確認危害是否真正降低，並避免同類問題再次發生。'
+    },
+    {
+      q: '健康管理與同仁情緒支持，哪一項較適當？',
+      o: ['將同仁健康情況公開給全隊討論', '尊重隱私，依需要提供適當支持與專業資源', '只有發生重大事故才能尋求協助'],
+      a: 1,
+      e: '應保護個人資料，並在有需要時及早尋求適當協助。'
+    }
+  ];
+
+  function updateProgress(){
+    const percent = (completed.size / 5) * 100;
+    document.getElementById('progress').style.width = percent + '%';
+    const label = document.getElementById('progress-label');
+    if (completed.size === 5) {
+      label.textContent = '已完成 5 / 5 個單元（可進行課後測驗 🎉）';
+      label.style.color = 'var(--teal)';
+    } else {
+      label.textContent = '已完成 ' + completed.size + ' / 5 個單元';
+      label.style.color = '';
+    }
+  }
+
+  function mark(n){
+    if (n > 0 && n < 6) completed.add(n);
+    updateProgress();
+  }
+
+  function getHomeHtml() {
+    const units = [
+      { id: 1, title: '單元一｜環境品質', desc: '空氣、噪音、照明、通風' },
+      { id: 2, title: '單元二｜壓力管理', desc: '勤務、突發任務、睡眠、支持' },
+      { id: 3, title: '單元三｜危害辨識', desc: '發現、評估、控制、通報' },
+      { id: 4, title: '單元四｜安全衛生教育', desc: '出勤前、中、後職安守則' },
+      { id: 5, title: '單元五｜健康管理', desc: '健檢追蹤、事件分析、同儕支持' },
+      { id: 6, title: '課後測驗', desc: '6 題實務情境評量與解析' }
+    ];
+
+    const gridHtml = units.map(u => {
+      const isDone = u.id === 6 ? submitted : completed.has(u.id);
+      const badgeText = isDone ? '✓ 已完成' : (u.id === 6 ? '開始測驗' : '未學習');
+      const ctaText = isDone ? '再次複習 ➔' : (u.id === 6 ? '前往測驗 ➔' : '點擊進入 ➔');
+      return `
+        <div class="tile clickable ${isDone ? 'completed' : ''}" data-nav="${u.id}" role="button" tabindex="0">
+          <div class="tile-top">
+            <div class="num">${u.id === 6 ? 'Quiz' : '0' + u.id}</div>
+            <span class="tile-badge">${badgeText}</span>
+          </div>
+          <div class="tile-title">${u.title}</div>
+          <div class="small muted">${u.desc}</div>
+          <div class="tile-cta">${ctaText}</div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <h2>學習目標</h2>
+      <p>消防人員經常面對突發任務、環境變化及高強度工作。職安不只是裝備檢查，也包括休息品質、心理支持與健康管理。</p>
+      <div class="grid">${gridHtml}</div>
+      <div class="panel" style="background:#f8fafc;margin-top:16px;">
+        <h3 style="margin-bottom:6px;">💡 開始前，先想一想</h3>
+        <p style="margin:6px 0;">如果你在備勤空間聞到異味、發現地面濕滑，或連續勤務後精神不濟，應該怎麼做？</p>
+        <p style="margin:6px 0;"><strong>核心原則：發現問題、先確保安全、立即反映、追蹤改善。</strong></p>
+      </div>
+    `;
+  }
+
+  function syncSelectedClasses(container = content) {
+    container.querySelectorAll('.qopt').forEach(qopt => {
+      const input = qopt.querySelector('input');
+      if (input) {
+        qopt.classList.toggle('selected', input.checked);
+      }
+    });
+  }
+
+  function showTab(n){
+    navButtons.forEach((b, i) => b.classList.toggle('active', i === n));
+    navButtons[n]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+    if (n === 6) {
+      showQuiz();
+      return;
+    }
+
+    if (n === 0) {
+      content.innerHTML = getHomeHtml();
+    } else {
+      content.innerHTML = modules[n].body;
+    }
+
+    // Action Navigation Buttons
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    actions.innerHTML = `
+      <button class="secondary" id="prev" ${n === 0 ? 'style="visibility:hidden;"' : ''}>← 上一單元</button>
+      <button class="primary" id="next">${n === 5 ? '前往課後測驗 →' : n === 0 ? '開始第一單元 →' : '下一單元 →'}</button>
+    `;
+    content.appendChild(actions);
+
+    actions.querySelector('#prev').onclick = () => {
+      showTab(Math.max(0, n - 1));
+      window.scrollTo({ top: navWrap.offsetTop - 8, behavior: 'smooth' });
+    };
+
+    actions.querySelector('#next').onclick = () => {
+      if (n > 0 && n < 6) mark(n);
+      if (n === 5) {
+        mark(5);
+        showTab(6);
+      } else {
+        showTab(n + 1);
+      }
+      window.scrollTo({ top: navWrap.offsetTop - 8, behavior: 'smooth' });
+    };
+
+    // Module Specific Handlers
+    if (n === 1) {
+      const checkBtn = content.querySelector('#scene-check');
+      if (checkBtn) {
+        checkBtn.onclick = () => {
+          const v = content.querySelector('input[name="scene"]:checked');
+          const f = content.querySelector('#scene-feedback');
+          if (!v) {
+            f.className = 'feedback warning';
+            f.innerHTML = '⚠️ <strong>請先點選一個答案</strong>，再進行確認。';
+            return;
+          }
+          if (v.value === 'b') {
+            f.className = 'feedback correct';
+            f.innerHTML = '🎉 <strong>回答正確！</strong>應先避免電氣危險，通報並依安全程序處理。';
+          } else {
+            f.className = 'feedback warning';
+            f.innerHTML = '💡 <strong>再想一想：</strong>應優先避免接觸可能帶電的濕區，並依程序通報隔離風險。';
+          }
+        };
+      }
+    }
+
+    if (n === 2) {
+      const checkBtn = content.querySelector('#pressure-check');
+      if (checkBtn) {
+        checkBtn.onclick = () => {
+          const v = content.querySelector('input[name="pressure"]:checked');
+          const f = content.querySelector('#pressure-feedback');
+          if (!v) {
+            f.className = 'feedback warning';
+            f.innerHTML = '⚠️ <strong>請先點選一個答案</strong>，再進行確認。';
+            return;
+          }
+          if (v.value === 'b') {
+            f.className = 'feedback correct';
+            f.innerHTML = '🎉 <strong>回答正確！</strong>疲勞與勤務安全密不可分，應及時反映並尊重同仁隱私。';
+          } else {
+            f.className = 'feedback warning';
+            f.innerHTML = '💡 <strong>建議重新思考：</strong>疲勞不應硬撐或公開討論，應循正式管道反映並調整勤務。';
+          }
+        };
+      }
+    }
+
+    if (n === 3) {
+      const inputs = [...content.querySelectorAll('#checklist input')];
+      const label = content.querySelector('#check-count');
+      const update = () => {
+        const cnt = inputs.filter(x => x.checked).length;
+        label.textContent = '已確認 ' + cnt + ' / 5 項' + (cnt === 5 ? '（全部完成 👍）' : '');
+        label.style.color = cnt === 5 ? 'var(--blue)' : 'var(--muted)';
+      };
+      inputs.forEach(x => x.addEventListener('change', update));
+      content.querySelector('#check-reset').onclick = () => {
+        inputs.forEach(x => {
+          x.checked = false;
+          x.closest('.qopt')?.classList.remove('selected');
+        });
+        update();
+      };
+    }
+
+    if (n === 5) {
+      const inputs = [...content.querySelectorAll('#health-check input')];
+      const label = content.querySelector('#health-count');
+      const fb = content.querySelector('#health-feedback');
+      const update = () => {
+        const cnt = inputs.filter(x => x.checked).length;
+        label.textContent = '已確認 ' + cnt + ' / 3 項';
+        if (cnt === 3) {
+          fb.style.display = 'block';
+        } else {
+          fb.style.display = 'none';
+        }
+      };
+      inputs.forEach(x => x.addEventListener('change', update));
+      content.querySelector('#health-reset').onclick = () => {
+        inputs.forEach(x => {
+          x.checked = false;
+          x.closest('.qopt')?.classList.remove('selected');
+        });
+        update();
+      };
+    }
+
+    syncSelectedClasses(content);
+  }
+
+  function showQuiz(){
+    navButtons.forEach((b, i) => b.classList.toggle('active', i === 6));
+    navButtons[6]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+    let html = '<h2>課後測驗</h2><p>共 6 題，請點選最適當的答案。點選整張選項卡片即可作答，送出後即可查看成績與每題解析。</p>';
+    if (completed.size < 5) {
+      html += '<div class="feedback warning">💡 <strong>溫馨提醒：</strong>建議先完成前 5 個單元再進行測驗（目前已完成 ' + completed.size + ' / 5 個單元）。也可以直接作答挑戰！</div>';
+    }
+
+    quiz.forEach((q, i) => {
+      html += '<div class="panel" id="quiz-panel-' + i + '">';
+      html += '<h3 style="display:flex;justify-content:space-between;align-items:center;"><span>第 ' + (i + 1) + ' 題</span><span class="small muted" id="quiz-status-' + i + '">' + (answers[i] !== undefined ? '已作答' : '未作答') + '</span></h3>';
+      html += '<p style="font-weight:600;margin:6px 0 12px;font-size:16px;">' + q.q + '</p>';
+
+      q.o.forEach((o, j) => {
+        const isSelected = answers[i] === j;
+        let stateClass = '';
+        if (submitted) {
+          if (isSelected && j === q.a) stateClass = ' quiz-correct';
+          else if (isSelected && j !== q.a) stateClass = ' quiz-wrong';
+          else if (j === q.a) stateClass = ' quiz-answer-highlight';
+        } else if (isSelected) {
+          stateClass = ' selected';
+        }
+
+        html += `
+          <label class="qopt${stateClass}" for="quiz-${i}-${j}">
+            <input type="radio" id="quiz-${i}-${j}" name="quiz-${i}" value="${j}" ${isSelected ? 'checked' : ''} ${submitted ? 'disabled' : ''}>
+            <span class="qopt-text"><strong>${String.fromCharCode(65 + j)}.</strong> ${o}</span>
+          </label>
+        `;
+      });
+
+      if (submitted) {
+        const isCorrect = answers[i] === q.a;
+        html += `
+          <div class="feedback ${isCorrect ? 'correct' : 'warning'}" style="margin-top:10px;">
+            <strong>${isCorrect ? '✓ 回答正確' : '✗ 答錯或未作答'}：</strong>${q.e}
+          </div>
+        `;
+      }
+      html += '</div>';
+    });
+
+    if (!submitted) {
+      html += '<button class="primary btn-lg w-full" id="submit" style="margin-top:18px;">送出答案並計分</button>';
+    } else {
+      const score = quiz.filter((q, i) => answers[i] === q.a).length;
+      const isPass = score >= 5;
+      html += `
+        <div class="panel" style="text-align:center;padding:24px 16px;">
+          <div class="muted small" style="font-weight:700;">本次測驗成績</div>
+          <div style="font-size:46px;font-weight:900;color:${isPass ? 'var(--teal)' : 'var(--blue)'};margin:8px 0;">${score} / ${quiz.length}</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:12px;">${score === 6 ? '🏆 太棒了！全部答對，職安觀念非常扎實！' : score >= 5 ? '🎉 表現優異，請持續在日常勤務中落實職安觀念。' : score >= 4 ? '👍 已掌握多數核心觀念，建議複習答錯題目。' : '📖 建議重新點選各單元複習，再進行測驗。'}</div>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+            <button class="primary btn-lg" id="retry" style="flex:1;max-width:240px;">重新測驗</button>
+            <button class="secondary btn-lg" id="back-home" style="flex:1;max-width:240px;">返回首頁</button>
+          </div>
+        </div>
+      `;
+    }
+
+    content.innerHTML = html;
+
+    if (!submitted) {
+      quiz.forEach((q, i) => {
+        content.querySelectorAll(`input[name="quiz-${i}"]`).forEach(input => {
+          input.addEventListener('change', () => {
+            answers[i] = Number(input.value);
+            const st = document.getElementById('quiz-status-' + i);
+            if (st) {
+              st.textContent = '已作答';
+              st.style.color = 'var(--blue)';
+              st.style.fontWeight = 'bold';
+            }
+          });
+        });
+      });
+
+      content.querySelector('#submit').onclick = () => {
+        const missing = quiz.findIndex((q, i) => answers[i] === undefined);
+        if (missing !== -1) {
+          alert('第 ' + (missing + 1) + ' 題尚未作答，請完成後再送出。');
+          const targetPanel = document.getElementById('quiz-panel-' + missing);
+          if (targetPanel) {
+            targetPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetPanel.style.borderColor = 'var(--blue)';
+            setTimeout(() => { if (targetPanel) targetPanel.style.borderColor = ''; }, 1500);
+          }
+          return;
+        }
+        submitted = true;
+        showQuiz();
+        window.scrollTo({ top: content.offsetTop - 20, behavior: 'smooth' });
+      };
+    } else {
+      content.querySelector('#retry').onclick = () => {
+        answers = {};
+        submitted = false;
+        showQuiz();
+        window.scrollTo({ top: content.offsetTop - 20, behavior: 'smooth' });
+      };
+      content.querySelector('#back-home')?.addEventListener('click', () => {
+        showTab(0);
+        window.scrollTo({ top: navWrap.offsetTop - 8, behavior: 'smooth' });
+      });
+    }
+
+    syncSelectedClasses(content);
+  }
+
+  // Delegate clicks on Home Grid Cards
+  content.addEventListener('click', (e) => {
+    const tile = e.target.closest('[data-nav]');
+    if (tile) {
+      const tabIndex = Number(tile.dataset.nav);
+      showTab(tabIndex);
+      window.scrollTo({ top: navWrap.offsetTop - 8, behavior: 'smooth' });
+    }
+  });
+
+  content.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const tile = e.target.closest('[data-nav]');
+      if (tile) {
+        e.preventDefault();
+        showTab(Number(tile.dataset.nav));
+        window.scrollTo({ top: navWrap.offsetTop - 8, behavior: 'smooth' });
+      }
+    }
+  });
+
+  // Global Change Event Delegation for Robust Touch Highlighting
+  document.addEventListener('change', (e) => {
+    const input = e.target;
+    if (!input || !input.matches('input[type="radio"], input[type="checkbox"]')) return;
+
+    if (input.type === 'radio') {
+      const name = input.name;
+      document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+        r.closest('.qopt')?.classList.toggle('selected', r.checked);
+      });
+    } else if (input.type === 'checkbox') {
+      input.closest('.qopt')?.classList.toggle('selected', input.checked);
+    }
+  });
+
+  // Tap handler to guarantee immediate touch selection feedback
+  document.addEventListener('click', (e) => {
+    const qopt = e.target.closest('.qopt');
+    if (!qopt) return;
+    const input = qopt.querySelector('input');
+    if (!input || input.disabled) return;
+
+    setTimeout(() => {
+      if (input.type === 'radio') {
+        document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
+          r.closest('.qopt')?.classList.toggle('selected', r.checked);
+        });
+      } else {
+        qopt.classList.toggle('selected', input.checked);
+      }
+    }, 10);
+  });
+
+  // Nav Tab Buttons
+  navButtons.forEach(b => {
+    b.addEventListener('click', () => {
+      showTab(Number(b.dataset.tab));
+      window.scrollTo({ top: navWrap.offsetTop - 8, behavior: 'smooth' });
+    });
+  });
+
+  // Initial Load
+  showTab(0);
+})();
+</script>
+</body>
+</html>
